@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2.0.0 (2014-12-30)
+
+* Bootstrap fork!
+* Converted functionality to work with Bootstrap 3
+* Added Gulp build
+
 ## 1.0.1 (2014-07-25)
 
 * Fix compatibility issue with [jquery-ujs](https://github.com/rails/jquery-ujs)

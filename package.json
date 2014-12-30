@@ -1,6 +1,6 @@
 {
   "name": "confirm-with-bs-modal",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-coffee": "^2.2.0",

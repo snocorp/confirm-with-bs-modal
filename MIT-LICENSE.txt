@@ -1,3 +1,4 @@
+Copyright 2014 David Sewell <http://snocorp.github.io/>
 Copyright 2013-2014 Agora Games <http://www.agoragames.com/>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
