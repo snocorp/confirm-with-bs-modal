@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Confirm with Reveal</title>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/normalize.css" rel="stylesheet">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap-theme.css" rel="stylesheet">
     <link href="stylesheets/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
@@ -13,70 +13,71 @@
     <![endif]-->
   </head>
   <body>
-    <header>
+    <header class="container">
       <div class="row">
         <div class="columns">
-          <h1>Confirm with Reveal</h1>
+          <h1>Confirm with Bootstrap Modal</h1>
           <p>
             Replacement for <kbd>window.confirm()</kbd> using the
-            <a href="http://foundation.zurb.com/docs/components/reveal.html">Reveal modal popup plugin</a>
-            from <a href="http://foundation.zurb.com/">ZURB Foundation</a>.
-            Maintained by <a href="https://github.com/agoragames">Agora Games</a>.
+            <a href="http://getbootstrap.com/javascript/#modals">Modal popup plugin</a>
+            from <a href="http://twitter.com/">Twitter</a>.
+            Maintained by <a href="https://github.com/snocorp">Dave Sewell</a>.
           </p>
         </div>
       </div>
     </header>
-    <div class="row">
-      <div class="columns large-4">
-        <ul>
-          <li><a href="https://github.com/agoragames/confirm-with-reveal">View on <strong>GitHub</strong></a></li>
-          <li><a href="https://github.com/agoragames/confirm-with-reveal/zipball/master">Download <strong>ZIP file</strong></a></li>
-          <li><a href="https://github.com/agoragames/confirm-with-reveal/tarball/master">Download <strong>TAR ball</strong></a></li>
-        </ul>
-      </div>
-      <div class="columns large-8">
-        <h2>Examples</h2>
-        <hr>
-        <p>
-          Confirming a link click:
-          <a data-confirm href="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif">Danger, danger!</a>
-        </p>
-        <hr>
-        <form action="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif" data-confirm='{"title":"For serious?","body":"Are you really, really sure you want to do that?","password":"YES","ok":"Engage!"}'>
-          <p>Confirming form submission (featuring per-element plugin customization):</p>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2">
+          <ul>
+            <li><a href="https://github.com/snocorp/confirm-with-bs-modal">View on <strong>GitHub</strong></a></li>
+            <li><a href="https://github.com/snocorp/confirm-with-bs-modal/zipball/master">Download <strong>ZIP file</strong></a></li>
+            <li><a href="https://github.com/snocorp/confirm-with-bs-modal/tarball/master">Download <strong>TAR ball</strong></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-10">
+          <h2>Examples</h2>
+          <hr>
           <p>
-            <input class="button alert" type="submit" value="Perilous activity">
+            Confirming a link click:
+            <a data-confirm="{}" href="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif">Danger, danger!</a>
           </p>
-        </form>
-        <hr>
-        <form action="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif">
-          <p>Confirming selected buttons in a form, leaving others unprotected:</p>
+          <hr>
+          <form action="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif" data-confirm='{"title":"For serious?","body":"Are you really, really sure you want to do that?","password":"YES","ok":"Engage!"}'>
+            <p>Confirming form submission (featuring per-element plugin customization):</p>
+            <p>
+              <input class="btn btn-danger" type="submit" value="Perilous activity">
+            </p>
+          </form>
+          <hr>
+          <form action="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif">
+            <p>Confirming selected buttons in a form, leaving others unprotected:</p>
+            <p>
+              <input class="btn btn-default" type="submit" value="I’m feeling lucky">
+              <input class="btn btn-danger" data-confirm="{}" type="submit" value="Save me from myself">
+            </p>
+          </form>
+          <hr>
           <p>
-            <input class="button" type="submit" value="I’m feeling lucky">
-            <input class="button alert" data-confirm type="submit" value="Save me from myself">
+            Falling back to plain <strong>window.confirm</strong>:
+            <a data-confirm="It’s not pretty!" href="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif">Plain vanilla danger</a>
           </p>
-        </form>
-        <hr>
-        <p>
-          Falling back to plain <strong>window.confirm</strong>:
-          <a data-confirm="It’s not pretty!" href="http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif">Plain vanilla danger</a>
-        </p>
+        </div>
       </div>
     </div>
-    <footer>
+    <footer class="container">
       <div class="row">
-        <div class="columns">
+        <div class="col-xs-12">
           <p>Hosted on <a href="http://pages.github.com/">GitHub Pages</a>.</p>
         </div>
       </div>
     </footer>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/vendor/jquery.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation/foundation.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation/foundation.reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.js"></script>
     <script src="javascripts/scale.fix.js"></script>
-    <script src="javascripts/confirm.js"></script>
+    <script src="javascripts/confirm_with_bs_modal.js"></script>
     <script>
-      $(document).confirmWithReveal();
+      $(document).confirmWithModal();
     </script>
   </body>
 </html>
