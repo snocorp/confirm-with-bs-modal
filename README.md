@@ -14,7 +14,7 @@ See [the project page](http://snocorp.github.io/confirm-with-bs-modal/) for a de
 
 ## Basic usage
 
-Run `$(document).confirmWithReveal()` after including this plugin to initialize it. This plugin must be included **after** jQuery (and if integrating with Rails, after the `jquery_ujs` plugin as well).
+Run `$(document).confirmWithModal()` after including this plugin to initialize it. This plugin must be included **after** jQuery (and if integrating with Rails, after the `jquery_ujs` plugin as well).
 
 Then simply put a `data-confirm` attribute on whatever links or buttons you like (e.g. `<a href="…" data-confirm>…</a>`. You may put this attribute directly on a form element as well to confirm all submissions.
 
