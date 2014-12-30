@@ -1,16 +1,16 @@
 # confirm-with-reveal
 
-Replacement for window.confirm() using the Reveal modal popup plugin from ZURB Foundation.
+Replacement for window.confirm() using the Bootstrap modal popup plugin.
 
 For maximum **“are you really, really sure”** protection, the user can optionally be prompted to type out a word or phrase to enable the button to proceed.
 
-Requires [jQuery](http://jquery.com/), as well as ZURB’s [Reveal](http://foundation.zurb.com/docs/components/reveal.html) plugin.
+Requires [jQuery](http://jquery.com/), as well as [Bootstrap](http://getbootstrap.com/javascript/#modals) plugin.
 
 Integrates with the Rails [jQuery UJS adapter](https://github.com/indirect/jquery-rails) if the latter has been included, by overwriting `$.rails.allowAction`. Simple use of `confirm: "Are you sure?"` in the `link_to` helper will use the standard `window.confirm()` prompt; see CoffeeScript source for full usage details.
 
 ## Example
 
-See [the project page](http://agoragames.github.io/confirm-with-reveal/) for a demo.
+See [the project page](http://snocorp.github.io/confirm-with-bs-modal/) for a demo.
 
 ## Basic usage
 
@@ -42,7 +42,7 @@ The initialization call accepts an options hash, with any or all of the followin
 Example:
 
 ```javascript
-$(document).confirmWithReveal({
+$(document).confirmWithModal({
   ok: 'Make it so',
   cancel: 'Never mind'
 })
@@ -67,4 +67,4 @@ link_to(
 
 ## Events
 
-The plugin fires two events: `cancel.reveal` if a confirmable action is cancelled by the user, and `confirm.reveal` if the user wants to continue. The events are triggered on the link, button, or form containing the `data-confirm` attribute, and bubble up the DOM hierarchy (so they can be handled on `$(document)` if desired). At this time, additional confirmation or validation cannot be attached via these events. This is on the roadmap for a future version.
+The plugin fires two events: `cancel.modal` if a confirmable action is cancelled by the user, and `confirm.modal` if the user wants to continue. The events are triggered on the link, button, or form containing the `data-confirm` attribute, and bubble up the DOM hierarchy (so they can be handled on `$(document)` if desired). At this time, additional confirmation or validation cannot be attached via these events. This is on the roadmap for a future version.

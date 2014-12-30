@@ -2,20 +2,20 @@
 %html{ lang: 'en' }
   %head
     %meta{ charset: 'UTF-8' }
-    %title Confirm with Reveal
-    %link{ rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/normalize.css' }
-    %link{ rel: 'stylesheet', href: '//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/css/foundation.css' }
+    %title Confirm with Bootstrap Modal
+    %link{ rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.css' }
+    %link{ rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap-theme.css' }
   %body
 
     .row
-      .columns.text-center
-        %h1 Confirm with Reveal
+      .col-sm-12.text-center
+        %h1 Confirm with Bootstrap Modal
         %hr
 
         %p
           Confirming a link click, using plugin defaults:
           %a{ href: 'http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif',
-              data: { confirm: true } } Danger, danger!
+              data: { confirm: '{}' } } Danger, danger!
         %hr
 
         -# Note that the options hash must be serialized with to_json
@@ -26,15 +26,15 @@
                                   ok: 'Engage!' }.to_json } }
           %p Confirming form submission (featuring per-element plugin customization):
           %p
-            %input.button.alert{ type: 'submit', value: 'Perilous activity' }
+            %input.btn.btn-danger{ type: 'submit', value: 'Perilous activity' }
         %hr
 
         %form{ action: 'http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif' }
           %p Confirming selected buttons in a form, leaving others unprotected:
           %p
-            %input.button{ type: 'submit', value: 'I’m feeling lucky' }
-            %input.button.alert{ type: 'submit', value: 'Save me from myself',
-                                 data: { confirm: true } }
+            %input.btn.btn-default{ type: 'submit', value: 'I’m feeling lucky' }
+            %input.btn.btn-danger{ type: 'submit', value: 'Save me from myself',
+                                 data: { confirm: '{}' } }
         %hr
 
         -# If data-confirm is a non-JSON string, we fall back to window.confirm
@@ -43,16 +43,15 @@
           %a{ href: 'http://24.media.tumblr.com/tumblr_lkden9rnhW1qjzex9o1_500.gif',
               data: { confirm: 'It’s not pretty!' } } Plain vanilla danger
 
-    %script{ src: '//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/vendor/jquery.js' }
-    %script{ src: '//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation/foundation.js' }
-    %script{ src: '//cdnjs.cloudflare.com/ajax/libs/foundation/5.2.1/js/foundation/foundation.reveal.js' }
+    %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js' }
+    %script{ src: 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.js' }
 
     -#
       If jquery_ujs (from jquery-rails) is included prior to confirm_with_reveal,
       $.rails.allowAction will be overwritten to use Reveal rather than window.confirm()
       on links with complex data-confirm attributes as in this demo. However, the plugin
       will still work without jquery_ujs being present.
-    %script{ src: asset_path('confirm_with_reveal') }
+    %script{ src: asset_path('confirm_with_bs_modal') }
 
     -#
       Plugin defaults may be overridden globally in the setup call, and

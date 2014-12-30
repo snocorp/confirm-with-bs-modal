@@ -1,16 +1,16 @@
 {
-  "name": "confirm-with-reveal",
-  "version": "1.0.1",
-  "homepage": "https://github.com/agoragames/confirm-with-reveal",
+  "name": "confirm-with-bs-modal",
+  "version": "1.0.0",
+  "homepage": "https://github.com/snocorp/confirm-with-bs-modal",
   "authors": [
-    "Jack Letourneau <jletourneau@agoragames.com>"
+    "Jack Letourneau <jletourneau@agoragames.com>",
+    "Dave Sewell <snocorp@gmail.com>"
   ],
-  "description": "Confirm UI actions with ZURB Foundation Reveal modals.",
-  "main": "build/confirm_with_reveal.js",
+  "description": "Confirm UI actions with Bootstrap modals.",
+  "main": "build/confirm_with_bs_modal.js",
   "keywords": [
-    "zurb",
-    "foundation",
-    "reveal",
+    "bootstrap",
+    "modal",
     "confirm"
   ],
   "license": "MIT",

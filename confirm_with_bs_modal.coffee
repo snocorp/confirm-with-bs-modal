@@ -18,10 +18,10 @@
 $ = this.jQuery
 
 $.fn.extend
-  confirmWithReveal: (options = {}) ->
+  confirmWithModal: (options = {}) ->
 
     defaults =
-      modal_class: 'medium'
+      modal_class: ''
       title: 'Are you sure?'
       title_class: ''
       body: 'This action cannot be undone.'
@@ -30,9 +30,9 @@ $.fn.extend
       prompt: 'Type <strong>%s</strong> to continue:'
       footer_class: ''
       ok: 'Confirm'
-      ok_class: 'button alert'
+      ok_class: 'btn btn-danger'
       cancel: 'Cancel'
-      cancel_class: 'button secondary'
+      cancel_class: 'btn btn-default'
 
     settings = $.extend {}, defaults, options
 
@@ -54,11 +54,20 @@ $.fn.extend
 
       # TODO: allow caller to pass in a template (DOM element to clone?)
       modal = $("""
-        <div data-reveal class='reveal-modal #{option 'modal_class'}'>
-          <h2 data-confirm-title class='#{option 'title_class'}'></h2>
-          <p data-confirm-body class='#{option 'body_class'}'></p>
-          <div data-confirm-footer class='#{option 'footer_class'}'>
-            <a data-confirm-cancel class='#{option 'cancel_class'}'></a>
+        <div class='modal fade'>
+          <div class='modal-dialog #{option 'modal_class'}'>
+            <div class='modal-content'>
+              <div class='modal-header'>
+                <button type='button' class='close' data-dismiss='modal' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
+                <h4 data-confirm-title class="modal-title #{option 'title_class'}"></h4>
+              </div>
+              <div class="modal-body #{option 'body_class'}">
+                <p data-confirm-body></p>
+              </div>
+              <div data-confirm-footer class="modal-footer #{option 'footer_class'}">
+                <a data-confirm-cancel class='#{option 'cancel_class'}'></a>
+              </div>
+            </div>
           </div>
         </div>
         """)
@@ -72,7 +81,7 @@ $.fn.extend
           return false if $(this).prop('disabled')
           # TODO: Handlers of this event cannot stop the confirmation from
           # going through (e.g. chaining additional validation). Fix TBD.
-          $el.trigger('confirm.reveal', e)
+          $el.trigger('confirm.modal', e)
           if $el.is('form, :input')
             $el
               .closest('form')
@@ -89,8 +98,8 @@ $.fn.extend
         .find('[data-confirm-cancel]')
         .html(option 'cancel')
         .on 'click', (e) ->
-          modal.foundation('reveal', 'close')
-          $el.trigger('cancel.reveal', e)
+          modal.modal('hide')
+          $el.trigger('cancel.modal', e)
       modal
         .find('[data-confirm-footer]')
         .append(confirm_button)
@@ -100,10 +109,12 @@ $.fn.extend
           (option 'prompt')
             .replace '%s', password
         confirm_html = """
-          <label>
-            #{confirm_label}
-            <input data-confirm-password type='text'/>
-          </label>
+          <div class='form-group'>
+            <label>
+              #{confirm_label}
+              <input data-confirm-password class='form-control' type='text'/>
+            </label>
+          </div>
           """
         modal
           .find('[data-confirm-body]')
@@ -119,9 +130,8 @@ $.fn.extend
 
       modal
         .appendTo($('body'))
-        .foundation()
-        .foundation('reveal', 'open')
-        .on 'closed.fndtn.reveal', (e) ->
+        .modal()
+        .on 'hidden.bs.modal', (e) ->
           modal.remove()
 
       return false
