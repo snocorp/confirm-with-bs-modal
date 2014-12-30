@@ -57,7 +57,7 @@
       Plugin defaults may be overridden globally in the setup call, and
       event listeners may be attached to the confirm/cancel events:
     :coffeescript
-      $(document).confirmWithReveal
+      $(document).confirmWithModal
         ok: 'Continue'
       .on 'cancel.reveal', (e) ->
         console.log 'Never mind!'

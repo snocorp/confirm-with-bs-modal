@@ -3,7 +3,7 @@ var $;
 $ = this.jQuery;
 
 $.fn.extend({
-  confirmWithReveal: function(options) {
+  confirmWithModal: function(options) {
     var defaults, do_confirm, handler, settings;
     if (options == null) {
       options = {};
